@@ -28,10 +28,10 @@ Figure 3 shows mixed results for the Small model, while the Medium model with RA
 
 ![img4.png](img/img4.png)
 
-Figure 4 shows LLM-Reranker outperforms all other rankers across models. In addition, while the accuracy in between reranker types have subtle differences, there is a significant improvement of accuracy when comparing any reranker with no reranker. This shows that using any reranker is generally worth 
+Figure 4 shows LLM-Reranker outperforms all other rankers across models. In addition, while the accuracy in between reranker types have subtle differences, there is a significant improvement of accuracy when comparing any reranker with no reranker across all questions. This shows that using any reranker is generally worth the performance overhead tradeoff.
 
 # Optimize the Number of Retrieved Chunks (Parameter Configuration)
 
-**Figure 5** - 
+**Figure 5** - Chunk retrieval accuracy vs number of retrieved chunks.
 
 ![img5.png](img/img5.png)
