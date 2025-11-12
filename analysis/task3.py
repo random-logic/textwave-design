@@ -225,9 +225,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Data
-categories = ["Easy", "Medium", "Hard", "Overall"]
-mistral_small_rag = [0.7077, 0.7498, 0.7393, 0.7059]
-mistral_medium_rag = [0.7078, 0.7666, 0.7594, 0.7164]
+categories = ["Easy", "Medium", "Hard"]
+mistral_small_rag = [0.7077, 0.7498, 0.7393]
+mistral_medium_rag = [0.7078, 0.7666, 0.7594]
 
 x = np.arange(len(categories))
 width = 0.35
