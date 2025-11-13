@@ -36,4 +36,4 @@ Figure 4 shows LLM-Reranker outperforms all other rankers across models. In addi
 
 ![img5.png](img/img5.png)
 
-Figure 5 is a step plot showing the marginal increase of accuracy as we increase the number of retrieved chunks. 
+Figure 5 is a step plot showing the marginal increase of accuracy as we increase the number of retrieved chunks. The optimal number of retrieved chunks is at $m = 4$ where the marginal return from increasing the number of chunks is heavily diminished. This way, the performance and speed tradeoff is balanced. As more chunks are retrieved, accuracy may initially improve due to greater context coverage, but inference time increases and the model may become slower or distracted by irrelevant information.
