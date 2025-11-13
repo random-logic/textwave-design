@@ -35,3 +35,5 @@ Figure 4 shows LLM-Reranker outperforms all other rankers across models. In addi
 **Figure 5** - Chunk retrieval accuracy vs number of retrieved chunks.
 
 ![img5.png](img/img5.png)
+
+Figure 5 is a step plot showing the marginal increase of accuracy as we increase the number of retrieved chunks. 
