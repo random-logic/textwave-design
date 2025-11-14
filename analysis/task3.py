@@ -208,68 +208,75 @@ if __name__ == "__main__":
 
 '''
 # small
-With RAG:
-Overall mean similarity: 0.7059 <- do not plot this number
-  easy: 0.7077
-  medium: 0.7498
-  hard: 0.7393
-Saved detailed results to textwave/results/generative_mistral-small-latest_detailed.csv
-No RAG:
-  Easy: 0.695
-  Hard: 0.742
-  Medium: 0.741
+With RAG
+	•	Easy: 0.7077
+	•	Medium: 0.7498
+	•	Hard: 0.7393
+	•	Overall: 0.732
+
+Without RAG
+	•	Easy: 0.695
+	•	Medium: 0.741
+	•	Hard: 0.742
+	•	Overall: 0.724
 
 # medium
-With RAG:
-Overall mean similarity: 0.7164 <- do not plot this number
-  easy: 0.7078
-  medium: 0.7666
-  hard: 0.7594
-Saved detailed results to textwave/results/generative_mistral-medium-latest_detailed.csv
-No RAG:
-  Easy: 0.700
-  Hard: 0.746
-  Medium: 0.746
+With RAG
+	•	Easy: 0.7078
+	•	Medium: 0.7666
+	•	Hard: 0.7594
+	•	Overall: 0.748
+Without RAG
+	•	Easy: 0.700
+	•	Medium: 0.746
+	•	Hard: 0.746
+	•	Overall: 0.733
 '''
 
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Data
-categories = ["Easy", "Medium", "Hard"]
+# Updated categories (added Overall)
+categories = ["Easy", "Medium", "Hard", "Overall"]
 
 # With RAG
-mistral_small_rag = [0.7077, 0.7498, 0.7393]
-mistral_medium_rag = [0.7078, 0.7666, 0.7594]
+mistral_small_rag = [0.7077, 0.7498, 0.7393, 0.732]
+mistral_medium_rag = [0.7078, 0.7666, 0.7594, 0.748]
 
 # No RAG
-mistral_small_no_rag = [0.695, 0.741, 0.742]
-mistral_medium_no_rag = [0.700, 0.746, 0.746]
+mistral_small_no_rag = [0.695, 0.741, 0.742, 0.724]
+mistral_medium_no_rag = [0.700, 0.746, 0.746, 0.733]
 
 x = np.arange(len(categories))
-width = 0.18  # thinner bars since we have 4 groups
+width = 0.18  # thinner bars since we now have 4 groups
 
 plt.figure(figsize=(10, 6))
 
 # Create grouped bars
-bars1 = plt.bar(x - 1.5*width, mistral_small_no_rag, width, label="Mistral-Small (No RAG)", color="#A6CEE3")
-bars2 = plt.bar(x - 0.5*width, mistral_small_rag, width, label="Mistral-Small (RAG)", color="#1F78B4")
-bars3 = plt.bar(x + 0.5*width, mistral_medium_no_rag, width, label="Mistral-Medium (No RAG)", color="#B2DF8A")
-bars4 = plt.bar(x + 1.5*width, mistral_medium_rag, width, label="Mistral-Medium (RAG)", color="#33A02C")
+bars1 = plt.bar(x - 1.5*width, mistral_small_no_rag, width, label="Mistral-Small (No RAG)")
+bars2 = plt.bar(x - 0.5*width, mistral_small_rag, width, label="Mistral-Small (RAG)")
+bars3 = plt.bar(x + 0.5*width, mistral_medium_no_rag, width, label="Mistral-Medium (No RAG)")
+bars4 = plt.bar(x + 1.5*width, mistral_medium_rag, width, label="Mistral-Medium (RAG)")
 
 # Annotate bars with values
 for bars in [bars1, bars2, bars3, bars4]:
     for bar in bars:
-        plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.002,
-                 f"{bar.get_height():.3f}", ha='center', fontsize=9, fontweight='bold')
+        plt.text(
+            bar.get_x() + bar.get_width()/2,
+            bar.get_height() + 0.002,
+            f"{bar.get_height():.3f}",
+            ha='center',
+            fontsize=9,
+            fontweight='bold'
+        )
 
 # Formatting
 plt.title("Mistral Generative Model Performance (With vs Without RAG)",
           fontsize=14, fontweight='bold')
 plt.ylabel("Mean Similarity", fontsize=12)
 plt.xticks(x, categories, fontsize=11)
-plt.ylim(0.68, 0.78)
+plt.ylim(0.68, 0.79)
 plt.legend()
 plt.grid(axis='y', linestyle="--", alpha=0.6)
 
