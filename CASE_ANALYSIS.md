@@ -62,7 +62,7 @@ In addition, there is a significant improvement of accuracy when comparing any r
 
 # Optimize the Number of Retrieved Chunks (Parameter Configuration)
 
-**Methodology** — Retrieval depth m was varied while keeping all other retrieval components constant (sentence‑based chunking, HNSW indexing, no reranking). Only the tested m‑values appear in the plot; m = 4 emerged as the global optimum within that range. Accuracy was measured on whether any of the retrieved chunks contained the correct reference.
+**Methodology** — Retrieval depth m was varied while keeping all other retrieval components constant (sentence‑based chunking, HNSW indexing, no reranking). Only the tested m‑values appear in the plot; m = 4 emerged as the global optimum within that range. Accuracy was measured on whether any of the retrieved chunks contained the correct reference. The LLM reranker is used.
 
 **Figure 5** - Chunk retrieval accuracy vs number of retrieved chunks.
 
